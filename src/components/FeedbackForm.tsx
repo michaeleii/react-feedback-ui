@@ -3,7 +3,6 @@ import Card from "./shared/Card";
 import Button from "./shared/Button";
 import RatingSelect from "./RatingSelect";
 import useFeedbackDispatch from "../hooks/useFeedbackDispatch";
-import useFeedback from "../hooks/useFeedback";
 
 function FeedbackForm() {
 	const [name, setName] = useState("");
