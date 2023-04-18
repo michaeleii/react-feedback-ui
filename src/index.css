@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	font-family: "Poppins", sans-serif;
+	line-height: 1.6;
+}
+
+.header {
+	@apply flex justify-center w-full items-center h-[70px] mb-[30px] text-accent bg-[rgba(0,0,0,0.4)];
+}
+
+.container {
+	@apply max-w-[768px] m-auto px-[20px];
+}
+.card {
+	@apply bg-white text-[#333] rounded-[15px] px-[50px] py-[40px] my-[20px] relative;
+}
+
+.card.reverse {
+	@apply bg-[rgba(0,0,0,0.4)] text-white;
+}
+
+.rating {
+	@apply flex justify-around items-center mt-[30px] mr-[0] mb-[40px];
+}
+
+.rating li,
+.num-display {
+	transition: 0.3s;
+	@apply relative bg-[#f4f4f4] w-[50px] h-[50px] p-[10px] text-center rounded-full text-[19px] border-solid border-2 border-[#eee] transition-[0.3s];
+}
+
+.rating li label {
+	@apply absolute top-1/2 left-1/2 w-[50px] h-[50px] p-[10px] rounded-full -translate-x-1/2 -translate-y-1/2 cursor-pointer;
+}
+
+.rating li:hover,
+.num-display {
+	@apply bg-accent text-white;
+}
+
+input[type="radio"] {
+	@apply opacity-0;
+}
+
+input[type="radio"]:checked ~ label {
+	@apply bg-accent text-white;
+}
+
+.input-group {
+	@apply flex flex-row border-solid border-[1px] border-[#ccc] px-[10px] py-[8px] rounded-[8px] mt-[20px];
+}
+
+input {
+	@apply text-black bg-white font-[16px] outline-none grow-[2] border-none;
+}
+
+.feedback-stats {
+	@apply text-[#fff] flex justify-between items-center font-bold text-xl;
+}
+
+.num-display {
+	@apply top-[-10px] left-[-10px] absolute;
+}
+
+.close,
+.edit {
+	@apply absolute top-[10px] right-[20px] cursor-pointer bg-none border-none transition-colors duration-300 ease-in-out;
+}
+.close:hover {
+	@apply text-[#df1d1d];
+}
+
+.edit {
+	right: 40px;
+	@apply right-[40px];
+}
+
+.btn {
+	@apply text-white normal-case w-[100px] h-[40px] cursor-pointer;
+}
+
+.btn-primary {
+	@apply bg-neutral;
+}
+
+.btn-secondary {
+	@apply bg-accent;
+}
+
+.btn:hover {
+	@apply scale-[0.98] opacity-[0.9];
+}
+
+.btn:disabled {
+	@apply bg-[#cccccc] text-[#333] cursor-auto;
+}
+
+.btn:disabled:hover {
+	@apply scale-[1] opacity-[1];
+}
+
+.message {
+	@apply pt-[10px] text-center text-secondary;
+}
+
+.about-link {
+	@apply flex justify-end;
+}
+
+.about-link a {
+	@apply text-[#fff] cursor-pointer mr-5 mb-5;
+}
+
+.about-link a:hover {
+	@apply text-accent;
+}
+
+.about h1 {
+	@apply text-2xl font-bold mb-[20px];
+}
+
+.about p {
+	@apply my-[10px] mx-[0];
+}
+
+@media (max-width: 600px) {
+	.rating li {
+		margin: 10px 3px;
+	}
+
+	.rating {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin: 30px 0 40px;
+	}
+
+	.input-group input {
+		width: 80%;
+	}
+}
