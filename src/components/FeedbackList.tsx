@@ -17,23 +17,21 @@ function FeedbackList() {
 	return (
 		<div className="feedback-list ">
 			<AnimatePresence>
-				{feedbacks
-					.map((f) => (
-						<motion.div
+				{feedbacks.map((f) => (
+					<motion.div
+						key={f.id}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						layout
+					>
+						<FeedbackItem
 							key={f.id}
-							initial={{ opacity: 0 }}
-							animate={{ opacity: 1 }}
-							exit={{ opacity: 0 }}
-							layout
-						>
-							<FeedbackItem
-								key={f.id}
-								feedback={f}
-								handleDelete={handleDeleteFbItem}
-							></FeedbackItem>
-						</motion.div>
-					))
-					.reverse()}
+							feedback={f}
+							handleDelete={handleDeleteFbItem}
+						></FeedbackItem>
+					</motion.div>
+				))}
 			</AnimatePresence>
 		</div>
 	);

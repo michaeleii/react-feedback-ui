@@ -14,7 +14,7 @@ export function FeedbackReducer(feedbacks: Feedback[], action: any) {
 				id: randomUUID(),
 				...action.feedback,
 			};
-			return [...feedbacks, newFeedback];
+			return [newFeedback, ...feedbacks];
 		}
 		case "deleted":
 			return feedbacks.filter((feedback) => feedback.id !== action.id);
