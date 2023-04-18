@@ -1,7 +1,8 @@
 {
 	"name": "feedback-app",
 	"private": true,
-	"version": "0.0.0",
+	"version": "1.0.0",
+	"homepage": "https://michaeleii.github.io/react-feedback-ui/",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
