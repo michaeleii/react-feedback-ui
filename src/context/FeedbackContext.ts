@@ -16,6 +16,14 @@ export function FeedbackReducer(feedbacks: Feedback[], action: any) {
 			};
 			return [newFeedback, ...feedbacks];
 		}
+		case "updated": {
+			const updatedFeedback = {
+				...action.feedback,
+			};
+			return feedbacks.map((feedback) =>
+				feedback.id === updatedFeedback.id ? updatedFeedback : feedback
+			);
+		}
 		case "deleted":
 			return feedbacks.filter((feedback) => feedback.id !== action.id);
 		default:

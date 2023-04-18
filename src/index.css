@@ -75,8 +75,11 @@ input {
 }
 
 .edit {
-	right: 40px;
-	@apply right-[40px];
+	@apply right-[40px] mr-2;
+}
+
+.edit:hover {
+	@apply text-primary;
 }
 
 .btn {
