@@ -1,7 +1,7 @@
 import { createContext, Dispatch } from "react";
 import feedbackData from "../data/feedbackData";
 import Feedback from "../interfaces/Feedback";
-import { randomUUID } from "crypto";
+import { v4 as uuidv4 } from "uuid";
 
 export const FeedbackContext = createContext(feedbackData);
 
@@ -11,7 +11,7 @@ export function FeedbackReducer(feedbacks: Feedback[], action: any) {
 	switch (action.type) {
 		case "added": {
 			const newFeedback = {
-				id: randomUUID(),
+				id: uuidv4(),
 				...action.feedback,
 			};
 			return [newFeedback, ...feedbacks];
