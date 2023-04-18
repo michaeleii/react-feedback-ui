@@ -10,12 +10,12 @@ import AboutIconLink from "./components/AboutIconLink";
 
 function App() {
 	return (
-		<BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
+		<BrowserRouter>
 			<Header />
 
 			<Routes>
 				<Route
-					path=""
+					path="/"
 					element={
 						<>
 							<div className="container">
