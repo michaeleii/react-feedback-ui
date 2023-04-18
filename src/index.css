@@ -67,7 +67,9 @@ input {
 }
 
 .close,
-.edit {
+.edit,
+.confirm,
+.cancel {
 	@apply absolute top-[10px] right-[20px] cursor-pointer bg-none border-none transition-colors duration-300 ease-in-out;
 }
 .close:hover {
@@ -80,6 +82,22 @@ input {
 
 .edit:hover {
 	@apply text-primary;
+}
+
+.confirm {
+	@apply right-[70px] mr-2;
+}
+
+.confirm:hover {
+	@apply text-green-500;
+}
+
+.cancel {
+	@apply right-[40px] mr-2;
+}
+
+.cancel:hover {
+	@apply text-[#df1d1d];
 }
 
 .btn {
@@ -128,6 +146,10 @@ input {
 
 .about p {
 	@apply my-[10px] mx-[0];
+}
+
+.card .input-group.edit-input {
+	@apply mt-0 pl-0 border-0 border-b-[1px] border-secondary rounded-none;
 }
 
 @media (max-width: 600px) {

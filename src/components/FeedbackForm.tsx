@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "./shared/Card";
 import Button from "./shared/Button";
 import RatingSelect from "./RatingSelect";
@@ -10,8 +10,9 @@ function FeedbackForm() {
 	const [rating, setRating] = useState(10);
 	const [btnDisabled, setBtnDisabled] = useState(true);
 	const [message, setMessage] = useState("");
-	const dispatch = useFeedbackDispatch();
 	const reviewGreaterThan10Chars = review.trim().length > 10;
+
+	const dispatch = useFeedbackDispatch();
 
 	function handleNameChange(e: React.ChangeEvent<HTMLInputElement>) {
 		setName(e.target.value);
@@ -30,17 +31,23 @@ function FeedbackForm() {
 		setReview(e.target.value);
 	}
 
+	const handleAddFbItem = (feedback: {
+		name: string;
+		text: string;
+		rating: number;
+	}) => {
+		dispatch({
+			type: "added",
+			feedback,
+		});
+	};
+
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
 		if (reviewGreaterThan10Chars && name.trim() !== "") {
-			dispatch({
-				type: "added",
-				feedback: {
-					name,
-					text: review,
-					rating,
-				},
-			});
+			handleAddFbItem({ name, text: review, rating });
+			setName("");
+			setReview("");
 		}
 	}
 
